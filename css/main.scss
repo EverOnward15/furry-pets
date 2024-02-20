@@ -1,0 +1,199 @@
+// Custom.scss
+// Option A: Include all of Bootstrap
+
+// Include any default variable overrides here (though functions won't be available)
+
+//Including customer variables and overriding bootstrap defaults 
+$primary: #7F187F;
+$gray: #E6E6E6;
+$headings-font-family: "Nunito", sans-serif;
+$headings-font-weight: 800;
+$font-family-base: "Poppins", sans-serif;
+
+$theme-colors: (
+"primary": $primary,
+"gray": $gray
+);
+
+//Create extend your own map
+$custom-color: (
+    "icon-background": rgb(127, 24, 127, 0.2)
+);
+
+//Merge this maps 
+$theme-colors: map-merge($theme-colors , $custom-color );
+
+@import "./bootstrap-5.3.2/scss/bootstrap";
+
+// Then add additional custom code here
+
+
+//**Header styles**
+.announcement-bar {
+    font-size: 0.8rem;
+    border-bottom: 1px solid var(--bs-gray);
+    &__list {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        display: inline-flex;
+        margin: 0 -10px;
+
+        li {
+            margin: 0 10px;
+            display: flex;
+            align-items: center;
+
+            .bi {
+                background-color: var(--bs-icon-background);
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                width: 30px;
+                height: 30px;
+                margin-right: 6px;
+            }
+        }
+    }
+}
+
+.site-header {
+    .aws-search-field {
+        font-size: 0.9rem;
+        padding-left: 1.4rem;
+        border-radius: 20px !important;
+    }
+}
+
+/* Main Menu */
+.main-navigation {
+    font-weight: 600;
+
+    .current-menu-item {
+        background-color: rgb(154, 92, 154);
+    }
+
+    a {
+        color: var(--bs-white);
+        padding: 0.6rem 1.4rem;
+        text-align: center;
+    }
+
+    a:hover {
+        background-color: rgb(154, 92, 154);
+    }
+
+    .menu-toggle {
+        background-color: $primary;
+        color: $white;
+        border: $primary;
+    }
+}
+
+//Carousel// 
+.carousel-control-prev-icon {
+    margin-right: 30px;
+}
+
+.carousel-control-next-icon {
+    margin-left: 30px;
+}
+
+@media (min-height: 768px) {
+    .carousel-control-prev-icon {
+        margin-right: 100px;
+    }
+}
+@media (min-height: 768px) {
+    .carousel-control-next-icon {
+        margin-left: 100px;
+    }
+}
+
+//***Categories***//
+.categories {
+    background-color: #f9f9f9;
+        .categories__col {
+            height: 212px;
+
+            img {
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+        @include media-breakpoint-up(md) {
+            .categories__col{
+                height: 336px;
+            }
+        }
+    }
+
+    .category-heading {
+        background: rgb(127, 24, 127, 0.8);
+    }
+
+    .special-offers {
+        z-index: 2;
+        left: 25%;
+        top: 35%;
+    }
+
+    .special-offers-text {
+        z-index: 2;
+        left: 30%;
+        top: 55%;
+    }
+
+    @media (min-height: 768px) {
+        .special-offers  {
+            z-index: 2;
+            
+            font-size: 2.5rem;
+        }
+    }
+    @media (min-height: 768px) {
+        .special-offers-text  {
+            z-index: 2;
+           
+            font-size: 2rem;
+        }
+    }
+
+    .special-offers-picture {
+        top: 20%;
+    }
+
+    @media (min-height: 768px) {
+        .special-offers-picture  {
+            top: 0;
+        }
+    }
+
+    .special-offers-background {
+        background-color: rgb(167, 4, 4, 0.8);
+        z-index: 1;
+    }
+
+    //footer 
+    .menu-footer-col li  {
+        list-style: none;
+        color: white;
+        z-index: 1;
+        
+    }
+
+    .menu-footer-col li a {
+        text-decoration: none;
+        color: white;
+    }
+
+    .menu-footer-col li a:hover {
+        background-color: rgb(154, 92, 154);
+    }   
+
+    .site-footer {
+        .menu {
+            margin: 0;
+            padding: 0;
+        }
+    }
